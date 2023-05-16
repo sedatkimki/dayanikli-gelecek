@@ -1,10 +1,10 @@
 import { Group, Title } from '@mantine/core';
 
-export default function HomePage() {
+export default function PostsPage() {
   return (
     <>
       <Group position="center">
-        <Title>Home</Title>
+        <Title>Blog</Title>
       </Group>
     </>
   );
