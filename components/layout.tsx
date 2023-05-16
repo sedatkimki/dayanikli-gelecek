@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import HeaderMenu from './header';
 import Footer from './footer';
+import PageTransition from './page-transition';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -12,7 +13,9 @@ export default function Layout({ children }: { children: ReactNode }) {
           { link: '/contact', label: 'İletişim' },
         ]}
       />
-      <main>{children}</main>
+      <main>
+        <PageTransition>{children}</PageTransition>
+      </main>
       <Footer />
     </>
   );
