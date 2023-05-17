@@ -15,13 +15,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ColorSchemeToggle } from './ColorSchemeToggle';
 
-const HEADER_HEIGHT = rem(56.25);
+const HEADER_HEIGHT = rem(60);
 
 const useStyles = createStyles((theme) => ({
   root: {
     position: 'relative',
     zIndex: 1,
     border: 'none',
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
   },
 
   dropdown: {
@@ -29,11 +30,12 @@ const useStyles = createStyles((theme) => ({
     top: HEADER_HEIGHT,
     left: 0,
     right: 0,
-    zIndex: 0,
+    zIndex: -3,
     borderTopRightRadius: 0,
     borderTopLeftRadius: 0,
     borderTopWidth: 0,
     overflow: 'hidden',
+    boxShadow: theme.shadows.md,
 
     [theme.fn.largerThan('sm')]: {
       display: 'none',
@@ -45,6 +47,7 @@ const useStyles = createStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: '100%',
+    maxWidth: 900,
   },
 
   title: {
@@ -92,6 +95,11 @@ const useStyles = createStyles((theme) => ({
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2],
     },
   },
+  themeSwitcher: {
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
+    },
+  },
 }));
 
 interface HeaderResponsiveProps {
@@ -119,7 +127,7 @@ export default function HeaderMenu({ links }: HeaderResponsiveProps) {
   ));
 
   return (
-    <Header height={HEADER_HEIGHT} mb={120} className={classes.root}>
+    <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
         <Link
           href="/"
@@ -129,19 +137,25 @@ export default function HeaderMenu({ links }: HeaderResponsiveProps) {
             setActive('/');
           }}
         >
-          <Title className={classes.title}>DayanikliGelecek</Title>
+          <Title className={classes.title}>DayanıklıGelecek</Title>
         </Link>
         <Group spacing={7} className={classes.links}>
           {items}
           <ColorSchemeToggle />
         </Group>
-        <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
 
-        <Transition transition="pop-top-right" duration={200} mounted={opened}>
+        <Group spacing={7} className={classes.themeSwitcher}>
+          <ColorSchemeToggle />
+          <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" />
+        </Group>
+
+        <Transition transition="slide-down" duration={300} mounted={opened}>
           {(styles) => (
-            <Paper className={classes.dropdown} withBorder style={styles}>
-              {items}
-            </Paper>
+            <>
+              <Paper className={classes.dropdown} withBorder style={styles}>
+                {items}
+              </Paper>
+            </>
           )}
         </Transition>
       </Container>
