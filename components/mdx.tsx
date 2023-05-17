@@ -7,6 +7,21 @@ interface MdxProps {
   code: string;
 }
 
+function a(props: any) {
+  return <Link {...props} />;
+}
+
+function hr(props: any) {
+  return <Divider my="sm" {...props} />;
+}
+function img(props: any) {
+  return <Image radius="md" {...props} />;
+}
+const components: MDXComponents = {
+  a,
+  hr,
+  img,
+};
 export function Mdx({ code }: MdxProps) {
   const Content = getMDXComponent(code);
 
@@ -19,19 +34,3 @@ export function Mdx({ code }: MdxProps) {
     </>
   );
 }
-
-function a(props) {
-  return <Link {...props} />;
-}
-
-function hr(props) {
-  return <Divider my="sm" />;
-}
-function img(props) {
-  return <Image radius="md" {...props} />;
-}
-const components: MDXComponents = {
-  a,
-  hr,
-  img,
-};
