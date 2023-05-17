@@ -31,13 +31,19 @@
     "@next/bundle-analyzer": "^13.1.6",
     "@tabler/icons": "^1.107.0",
     "@tabler/icons-react": "^2.4.0",
+    "contentlayer": "^0.3.2",
     "cookies-next": "^2.1.1",
+    "date-fns": "^2.30.0",
     "dayjs": "^1.11.6",
     "embla-carousel-react": "^7.0.3",
     "framer-motion": "^10.12.11",
     "next": "13.2.4",
+    "next-contentlayer": "^0.3.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-slug": "^5.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",

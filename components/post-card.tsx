@@ -19,17 +19,18 @@ interface PostCardProps {
   title: string;
   image: string;
   date: string;
-  desc: string;
+  desc: string | undefined;
+  readingTime: string;
 }
 
-export default function PostCard({ title, image, date, desc }: PostCardProps) {
+export default function PostCard({ title, image, date, desc, readingTime }: PostCardProps) {
   const { classes } = useStyles();
 
   return (
     <Flex direction="column">
-      <Image mx="auto" radius="md" src={image} alt="Post image" />
+      <Image mx="auto" radius="md" src={image} alt="Post image" withPlaceholder />
       <Text c="dimmed" className={classes.date}>
-        {date}
+        {date} - {readingTime}
       </Text>
       <Title order={3} className={classes.title}>
         {title}
