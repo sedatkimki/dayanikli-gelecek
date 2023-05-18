@@ -23,6 +23,10 @@ const Post = defineDocumentType(() => ({
     title: { type: 'string', required: true },
     subtitle: { type: 'string', required: false },
     image: { type: 'string', required: true },
+    author: { type: 'string', required: true },
+    profileImage: { type: 'string', required: false },
+    profileLink: { type: 'string', required: true },
+    profileName: { type: 'string', required: true },
   },
   computedFields,
 }));

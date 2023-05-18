@@ -18,7 +18,6 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 700,
   },
   desc: {
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[1] : theme.colors.gray[7],
     fontWeight: 400,
   },
   link: {
@@ -35,7 +34,7 @@ export default function PostsPage({ posts }: { posts: Post[] }) {
         <Title order={2} className={classes.title}>
           Yazılar
         </Title>
-        <Text className={classes.desc}>
+        <Text className={classes.desc} color="dimmed">
           Bu sayfada Deprem hakkında yazılan yazıları bulabilirsiniz{' '}
         </Text>
       </Flex>
