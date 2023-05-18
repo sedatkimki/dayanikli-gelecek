@@ -3,6 +3,7 @@ import NextApp, { AppProps, AppContext } from 'next/app';
 import { getCookie, setCookie } from 'cookies-next';
 import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
+import { Analytics } from '@vercel/analytics/react';
 import Layout from '../components/layout';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
@@ -34,6 +35,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           </Layout>
         </MantineProvider>
       </ColorSchemeProvider>
+      <Analytics />
     </>
   );
 }
