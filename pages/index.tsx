@@ -1,4 +1,8 @@
 import { Title, Container, rem, Center, Text, Box, createStyles } from '@mantine/core';
+import PostCarousel from 'components/post-carousel';
+import { GetStaticPropsResult } from 'next';
+import { allPosts, Post } from 'contentlayer/generated';
+import { compareDesc, format, parseISO } from 'date-fns';
 
 const useStyles = createStyles((theme) => ({
   hero: {
@@ -13,7 +17,13 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function HomePage() {
+export async function getStaticProps(): Promise<GetStaticPropsResult<{ posts: Post[] }>> {
+  const posts: Post[] = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+
+  return { props: { posts: posts.map((post: Post) => post) } };
+}
+
+export default function HomePage({ posts }: { posts: Post[] }) {
   const { classes } = useStyles();
 
   return (
@@ -30,6 +40,9 @@ export default function HomePage() {
             nemo modi numquam incidunt a iusto dignissimos quia inventore.
           </Text>
         </Center>
+      </Box>
+      <Box py={50}>
+        <PostCarousel posts={posts} />
       </Box>
     </Container>
   );
