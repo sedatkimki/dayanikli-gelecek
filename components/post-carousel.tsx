@@ -12,6 +12,7 @@ import {
   Image,
   Group,
   Badge,
+  Stack,
 } from '@mantine/core';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc, format, parseISO } from 'date-fns';
@@ -20,13 +21,10 @@ import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
   card: {
-    height: rem(440),
+    height: rem(375),
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
   },
 
   title: {
@@ -50,27 +48,30 @@ function PostCard({ image, title, subtitle, readingTime, date, slug }: Post) {
   const { classes } = useStyles();
 
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder>
+    <Card shadow="sm" padding="lg" radius="md" withBorder className={classes.card}>
       <Card.Section>
         <Image src={image} height={160} alt="image" />
       </Card.Section>
-      <Group position="apart" mt="sm">
-        <Text size="xs" color="dimmed">
-          {format(parseISO(date!), 'd LLLL yyyy', {
-            locale: tr,
-          })}
-          {' • '} {readingTime.text}
-        </Text>
-      </Group>
-      <Group position="apart" mt="xs" mb="xs">
-        <Text size="lg" weight={600}>
-          {title}
-        </Text>
-      </Group>
+      <div>
+        <Group position="apart" mt="sm">
+          <Text size="xs" color="dimmed">
+            {format(parseISO(date!), 'd LLLL yyyy', {
+              locale: tr,
+            })}
+            {' • '} {readingTime.text}
+          </Text>
+        </Group>
+        <Group position="apart" mt="xs" mb="xs">
+          <Text size="lg" weight={600}>
+            {title}
+          </Text>
+        </Group>
 
-      <Text size="sm" color="dimmed">
-        {subtitle}
-      </Text>
+        <Text size="sm" color="dimmed" sx={{ marginBottom: 'auto' }}>
+          {subtitle}
+        </Text>
+      </div>
+
       <Link href={`/post/${slug}`} passHref legacyBehavior>
         <Button
           variant="filled"
@@ -80,7 +81,7 @@ function PostCard({ image, title, subtitle, readingTime, date, slug }: Post) {
           size="sm"
           color="dark"
           fullWidth
-          mt="md"
+          mt="auto"
           radius="md"
         >
           Devamını Oku
