@@ -1,10 +1,26 @@
-import { Grid, Container, rem } from '@mantine/core';
+import { Grid, Container, rem, Affix, Button, Text, Transition, createStyles } from '@mantine/core';
 import { allPosts, Post } from 'contentlayer/generated';
 import { Mdx } from 'components/mdx';
 import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next';
+import { IconArrowUp } from '@tabler/icons-react';
+import { useWindowScroll } from '@mantine/hooks';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 import PostHeader from 'components/post-header';
 import PostInfo from 'components/post-info';
+
+const useStyles = createStyles((theme) => ({
+  progressBar: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 6,
+    background: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
+    transformOrigin: '0%',
+    zIndex: 1000,
+  },
+}));
 
 export async function getStaticPaths(): Promise<GetStaticPathsResult> {
   const paths = allPosts.map((post) => `/post/${post.slug}`);
@@ -33,8 +49,19 @@ export async function getStaticProps({
 }
 
 export default function PostPage({ post }: { post: Post }) {
+  const { classes } = useStyles();
+
+  const [scroll, scrollTo] = useWindowScroll();
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
   return (
     <>
+      <motion.div className={classes.progressBar} style={{ scaleX }} />
+
       <PostHeader post={post} />
       <Container size={900} mt={rem(24)}>
         <Grid gutter={rem(5)} gutterLg={rem(20)} gutterMd={rem(20)} gutterSm={rem(20)}>
@@ -46,6 +73,20 @@ export default function PostPage({ post }: { post: Post }) {
           </Grid.Col>
         </Grid>
       </Container>
+      <Affix position={{ bottom: rem(20), right: rem(20) }}>
+        <Transition transition="slide-up" mounted={scroll.y > 0}>
+          {(transitionStyles) => (
+            <Button
+              color="dark"
+              leftIcon={<IconArrowUp size="1rem" />}
+              style={transitionStyles}
+              onClick={() => scrollTo({ y: 0 })}
+            >
+              Scroll to top
+            </Button>
+          )}
+        </Transition>
+      </Affix>
     </>
   );
 }
