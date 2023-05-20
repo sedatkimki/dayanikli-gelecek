@@ -1,4 +1,4 @@
-import { createStyles, Anchor, Group, ActionIcon, rem, Title } from '@mantine/core';
+import { createStyles, Anchor, Group, ActionIcon, rem, Title, Container } from '@mantine/core';
 import { IconBrandTwitter, IconBrandInstagram, IconBrandGithub } from '@tabler/icons-react';
 import Link from 'next/link';
 
@@ -49,28 +49,30 @@ export default function Footer({ links }: FooterCenteredProps) {
 
   return (
     <div className={classes.footer}>
-      <div className={classes.inner}>
-        <Title className={classes.title}>DayanikliGelecek</Title>
-        <Group className={classes.links}>{items}</Group>
+      <Container size={900}>
+        <div className={classes.inner}>
+          <Title className={classes.title}>DayanikliGelecek</Title>
+          <Group className={classes.links}>{items}</Group>
 
-        <Group spacing="xs" position="right" noWrap>
-          <Link href="https://twitter.com" passHref legacyBehavior>
-            <ActionIcon component="a" target="_blank" size="lg" variant="default" radius="xl">
-              <IconBrandTwitter size="1.05rem" stroke={1.5} />
-            </ActionIcon>
-          </Link>
-          <Link href="https://instagram.com" passHref legacyBehavior>
-            <ActionIcon component="a" target="_blank" size="lg" variant="default" radius="xl">
-              <IconBrandInstagram size="1.05rem" stroke={1.5} />
-            </ActionIcon>
-          </Link>
-          <Link href="https://github.com" passHref legacyBehavior>
-            <ActionIcon component="a" target="_blank" size="lg" variant="default" radius="xl">
-              <IconBrandGithub size="1.05rem" stroke={1.5} />
-            </ActionIcon>
-          </Link>
-        </Group>
-      </div>
+          <Group spacing="xs" position="right" noWrap>
+            <Link href="https://twitter.com" passHref legacyBehavior>
+              <ActionIcon component="a" target="_blank" size="lg" variant="default" radius="xl">
+                <IconBrandTwitter size="1.05rem" stroke={1.5} />
+              </ActionIcon>
+            </Link>
+            <Link href="https://instagram.com" passHref legacyBehavior>
+              <ActionIcon component="a" target="_blank" size="lg" variant="default" radius="xl">
+                <IconBrandInstagram size="1.05rem" stroke={1.5} />
+              </ActionIcon>
+            </Link>
+            <Link href="https://github.com" passHref legacyBehavior>
+              <ActionIcon component="a" target="_blank" size="lg" variant="default" radius="xl">
+                <IconBrandGithub size="1.05rem" stroke={1.5} />
+              </ActionIcon>
+            </Link>
+          </Group>
+        </div>
+      </Container>
     </div>
   );
 }
