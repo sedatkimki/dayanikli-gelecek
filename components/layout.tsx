@@ -16,7 +16,13 @@ export default function Layout({ children }: { children: ReactNode }) {
       <main>
         <PageTransition>{children}</PageTransition>
       </main>
-      <Footer />
+      <Footer
+        links={[
+          { link: '/about', label: 'Hakkımızda' },
+          { link: '/post', label: 'Yazılar' },
+          { link: '/contact', label: 'İletişim' },
+        ]}
+      />
     </>
   );
 }
