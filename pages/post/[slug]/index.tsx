@@ -1,4 +1,13 @@
-import { Grid, Container, rem, Affix, Button, Text, Transition, createStyles } from '@mantine/core';
+import {
+  Grid,
+  Container,
+  rem,
+  Affix,
+  Transition,
+  createStyles,
+  ActionIcon,
+  useMantineColorScheme,
+} from '@mantine/core';
 import { allPosts, Post } from 'contentlayer/generated';
 import { Mdx } from 'components/mdx';
 import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult } from 'next';
@@ -76,14 +85,15 @@ export default function PostPage({ post }: { post: Post }) {
       <Affix position={{ bottom: rem(20), right: rem(20) }}>
         <Transition transition="slide-up" mounted={scroll.y > 0}>
           {(transitionStyles) => (
-            <Button
+            <ActionIcon
               color="dark"
-              leftIcon={<IconArrowUp size="1rem" />}
+              size="md"
+              variant="filled"
               style={transitionStyles}
               onClick={() => scrollTo({ y: 0 })}
             >
-              Scroll to top
-            </Button>
+              <IconArrowUp size="1rem" />
+            </ActionIcon>
           )}
         </Transition>
       </Affix>
