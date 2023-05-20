@@ -2,7 +2,7 @@ import { Title, Container, rem, Center, Text, Box, createStyles } from '@mantine
 import PostCarousel from 'components/post-carousel';
 import { GetStaticPropsResult } from 'next';
 import { allPosts, Post } from 'contentlayer/generated';
-import { compareDesc, format, parseISO } from 'date-fns';
+import { compareDesc } from 'date-fns';
 
 const useStyles = createStyles((theme) => ({
   hero: {
