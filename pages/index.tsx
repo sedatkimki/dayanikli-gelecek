@@ -3,6 +3,7 @@ import PostCarousel from 'components/post-carousel';
 import { GetStaticPropsResult } from 'next';
 import { allPosts, Post } from 'contentlayer/generated';
 import { compareDesc } from 'date-fns';
+import Stats from 'components/stats';
 
 const useStyles = createStyles((theme) => ({
   hero: {
@@ -40,6 +41,27 @@ export default function HomePage({ posts }: { posts: Post[] }) {
             nemo modi numquam incidunt a iusto dignissimos quia inventore.
           </Text>
         </Center>
+      </Box>
+      <Box py={50}>
+        <Stats
+          data={[
+            {
+              title: 'Deprem Sayısı',
+              description: 'Bu yıl içerisinde meydana gelen deprem sayısı',
+              stats: '100',
+            },
+            {
+              title: 'en büyük deprem',
+              description: 'Bu yıl içerisinde meydana gelen en büyük deprem',
+              stats: '7.0',
+            },
+            {
+              title: 'etkilenen kişi sayısı',
+              description: 'Bu yıl içerisinde meydana gelen depremlerden etkilenen kişi sayısı',
+              stats: '100.000',
+            },
+          ]}
+        />
       </Box>
       <Box py={50}>
         <PostCarousel posts={posts} />
