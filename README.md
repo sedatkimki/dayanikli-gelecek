@@ -48,7 +48,7 @@ Dayanıklı Gelecek adlı front-end projesi, destekte bulunmak isteyenlerin kend
 1. `posts` klasörüne, yazılan blogun başlığını slug formatına dönüştürerek adını kullanarak bir `mdx` dosyası oluşturun.
 2. Markdown formatını kullanarak, aşağıdaki tabloyu oluşturun ve ilgili bilgileri kendi bilgilerinizle doldurun:
    
----
+`---
 date: Blogun tarihi 
 title:  Blog başlığı          
 subtitle: Blog alt başlığı 
@@ -57,7 +57,8 @@ author: Yazar adı
 profileImage: Yazar profil görseli
 profileLink: Yazar profil linki  
 profileName: Yazar profil adı  
----
+---` 
+
 
 3. Blog içeriğini, bu tablonun altına Markdown formatında yapıştırın.
 4. Eğer blogda bir resim varsa, `public/images/blog-ismi` şeklinde bir dizin oluşturun ve resimleri bu dizine yükleyin. Ardından, `mdx` dosyasında bu dizine referans vererek resimleri kullanın.
