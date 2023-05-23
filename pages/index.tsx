@@ -1,4 +1,4 @@
-import { Title, Container, rem, Center, Text, Box, createStyles } from '@mantine/core';
+import { Title, Container, rem, Center, Text, Box, createStyles, Flex } from '@mantine/core';
 import PostCarousel from 'components/post-carousel';
 import { GetStaticPropsResult } from 'next';
 import { allPosts, Post } from 'contentlayer/generated';

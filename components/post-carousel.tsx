@@ -2,20 +2,18 @@ import { Carousel } from '@mantine/carousel';
 import { useMediaQuery } from '@mantine/hooks';
 import {
   createStyles,
-  Paper,
   Text,
-  Title,
   Button,
   useMantineTheme,
   rem,
   Card,
   Image,
   Group,
-  Badge,
-  Stack,
+  Flex,
+  Title,
 } from '@mantine/core';
-import { allPosts, Post } from 'contentlayer/generated';
-import { compareDesc, format, parseISO } from 'date-fns';
+import { Post } from 'contentlayer/generated';
+import { format, parseISO } from 'date-fns';
 import { tr } from 'date-fns/locale';
 import Link from 'next/link';
 
@@ -30,17 +28,20 @@ const useStyles = createStyles((theme) => ({
   title: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 900,
-    color: theme.white,
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
     lineHeight: 1.2,
     fontSize: rem(32),
     marginTop: theme.spacing.xs,
   },
 
   category: {
-    color: theme.white,
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
     opacity: 0.7,
     fontWeight: 700,
     textTransform: 'uppercase',
+  },
+  sectionTitle: {
+    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
   },
 }));
 
@@ -94,6 +95,7 @@ function PostCard({ image, title, subtitle, readingTime, date, slug }: Post) {
 export default function PostCarousel({ posts }: { posts: Post[] }) {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const { classes } = useStyles();
   const slides = posts?.map((item) => (
     <Carousel.Slide key={item._id}>
       <PostCard {...item} />
@@ -101,26 +103,34 @@ export default function PostCarousel({ posts }: { posts: Post[] }) {
   ));
 
   return (
-    <Carousel
-      slideSize="33.3333%"
-      breakpoints={[
-        { maxWidth: 'sm', slideSize: '50%', slideGap: 'lg' },
-        { maxWidth: 'xs', slideSize: '100%', slideGap: 2 },
-      ]}
-      slideGap="lg"
-      align="start"
-      slidesToScroll={mobile ? 1 : 2}
-      px={mobile ? 0 : 'xs'}
-      styles={{
-        control: {
-          '&[data-inactive]': {
-            opacity: 0,
-            cursor: 'default',
+    <>
+      <Flex direction="column" gap="md" mb="lg">
+        <Title order={2} className={classes.sectionTitle}>
+          Yazılar
+        </Title>
+        <Text color="dimmed">Bu sayfada Deprem hakkında yazılan yazıları bulabilirsiniz </Text>
+      </Flex>
+      <Carousel
+        slideSize="33.3333%"
+        breakpoints={[
+          { maxWidth: 'sm', slideSize: '50%', slideGap: 'lg' },
+          { maxWidth: 'xs', slideSize: '100%', slideGap: 2 },
+        ]}
+        slideGap="lg"
+        align="start"
+        slidesToScroll={mobile ? 1 : 2}
+        // px={mobile ? 0 : 'xs'}
+        styles={{
+          control: {
+            '&[data-inactive]': {
+              opacity: 0,
+              cursor: 'default',
+            },
           },
-        },
-      }}
-    >
-      {slides}
-    </Carousel>
+        }}
+      >
+        {slides}
+      </Carousel>
+    </>
   );
 }
