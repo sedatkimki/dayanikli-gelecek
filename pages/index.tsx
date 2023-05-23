@@ -64,17 +64,17 @@ export default function HomePage({ posts }: { posts: Post[] }) {
             {
               title: 'Deprem',
               description: 'Son 10 yılda türkiyede meydana gelen 5.0 ve üzeri yıkıcı deprem sayısı',
-              stats: '39',
+              stats: 39,
             },
             {
               title: 'En büyük deprem',
               description: 'Türkiyede meydana gelen en büyük deprem',
-              stats: '7.8',
+              stats: 7.8,
             },
             {
               title: 'Kişi hayatını kaybetti',
               description: 'Son 10 yılda türkiyede meydana gelen 5.0 ve üzeri yıkıcı depremlerde',
-              stats: '51.911',
+              stats: 51911,
             },
           ]}
         />
