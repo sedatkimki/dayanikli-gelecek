@@ -19,14 +19,13 @@ import Link from 'next/link';
 
 const useStyles = createStyles((theme) => ({
   card: {
-    height: rem(375),
+    height: rem(400),
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
 
   title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
     fontWeight: 900,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
     lineHeight: 1.2,
@@ -63,12 +62,12 @@ function PostCard({ image, title, subtitle, readingTime, date, slug }: Post) {
           </Text>
         </Group>
         <Group position="apart" mt="xs" mb="xs">
-          <Text size="lg" weight={600}>
+          <Text lineClamp={2} size="lg" weight={600}>
             {title}
           </Text>
         </Group>
 
-        <Text size="sm" color="dimmed" sx={{ marginBottom: 'auto' }}>
+        <Text lineClamp={3} size="sm" color="dimmed" sx={{ marginBottom: 'auto' }}>
           {subtitle}
         </Text>
       </div>
