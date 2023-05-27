@@ -1,4 +1,4 @@
-import { Flex, Image, Title, Text, createStyles, rem } from '@mantine/core';
+import { Flex, Image, Title, Text, createStyles, rem, AspectRatio } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   title: {
@@ -28,7 +28,7 @@ export default function PostCard({ title, image, date, desc, readingTime }: Post
 
   return (
     <Flex direction="column">
-      <Image mx="auto" radius="md" src={image} alt="Post image" withPlaceholder />
+      <Image height={250} mx="auto" radius="md" src={image} alt="Post image" withPlaceholder />
       <Text c="dimmed" className={classes.date}>
         {date} - {readingTime}
       </Text>
