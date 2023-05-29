@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import NextApp, { AppProps, AppContext } from 'next/app';
 import { getCookie, setCookie } from 'cookies-next';
 import Head from 'next/head';
@@ -6,9 +6,14 @@ import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core
 import { Analytics } from '@vercel/analytics/react';
 import Layout from '../components/layout';
 
-export default function App(props: AppProps & { colorScheme: ColorScheme }) {
+export default function App(props: AppProps) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
+  useEffect(() => {
+    const preferedColorScheme: ColorScheme = (getCookie('mantine-color-scheme') ||
+      'light') as ColorScheme;
+    setColorScheme(preferedColorScheme);
+  }, []);
 
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
@@ -41,10 +46,8 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 }
 
 App.getInitialProps = async (appContext: AppContext) => {
-  const preferedColorScheme = getCookie('mantine-color-scheme', appContext.ctx);
   const appProps = await NextApp.getInitialProps(appContext);
   return {
     ...appProps,
-    colorScheme: preferedColorScheme || 'light',
   };
 };
