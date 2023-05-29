@@ -41,9 +41,10 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 }
 
 App.getInitialProps = async (appContext: AppContext) => {
+  const preferedColorScheme = getCookie('mantine-color-scheme', appContext.ctx);
   const appProps = await NextApp.getInitialProps(appContext);
   return {
     ...appProps,
-    colorScheme: getCookie('mantine-color-scheme', appContext.ctx) || 'dark',
+    colorScheme: preferedColorScheme || 'light',
   };
 };
