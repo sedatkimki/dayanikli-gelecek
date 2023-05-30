@@ -61,9 +61,9 @@ interface ContactIconsListProps {
 const MOCKDATA = [
   {
     title: 'Email',
-    description: 'hello@dayanikligelecek.dev',
+    description: 'dayanikligelecek@gmail.com',
     icon: IconAt,
-    link: 'mailto:korkmz.sedat@gmail.com',
+    link: 'mailto:dayanikligelecek@gmail.com',
   },
   {
     title: 'Instagram',
@@ -73,9 +73,9 @@ const MOCKDATA = [
   },
   {
     title: 'Twitter',
-    description: '@dayanikligelecek',
+    description: '@daynikligelecek',
     icon: IconBrandTwitter,
-    link: 'https://twitter.com/dayanikligelecek',
+    link: 'https://twitter.com/daynikligelecek',
   },
 ];
 
