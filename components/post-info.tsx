@@ -49,8 +49,9 @@ export default function PostInfo({ post }: { post: Post }) {
                 alt={post.author}
               >
                 {post.author
-                  .match(/(\b\S)?/g)
-                  ?.join('')
+                  .split(' ')
+                  .map((part) => part[0])
+                  .join('')
                   .toUpperCase()}
               </Avatar>
               <Stack spacing="none">
