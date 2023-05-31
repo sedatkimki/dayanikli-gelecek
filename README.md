@@ -53,5 +53,5 @@ Bu adımları takip ederek, projeye katkıda bulunabilir ve kendi yazılarınız
 
 **Notlar:**
 
-- Proje ile ilgili daha fazla bilgi için [Dayanıklı Gelecek](https://www.dayanikli-gelecek.vercel.app) web sitesini ziyaret edebilirsiniz.
+- Proje ile ilgili daha fazla bilgi için [Dayanıklı Gelecek](https://dayanikli-gelecek.vercel.app/) web sitesini ziyaret edebilirsiniz.
 - İlgili kodların kaynağına, projenin [GitHub deposu](https://github.com/sedatkimki/dayanikli-gelecek) üzerinden erişebilirsiniz.
