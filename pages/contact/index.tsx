@@ -79,7 +79,8 @@ export default function ContactPage() {
               Bize Ulaşın
             </Text>
             <Text color="dimmed">
-              Bize ulaşmak için verilen iletişim bilgilerini kullanabilirisiniz.
+              Her türlü öneri ve şikayetleriniz için yanda verilen iletişim bilgilerinden bize
+              ulaşabilirsiniz.
             </Text>
           </Flex>
         </div>

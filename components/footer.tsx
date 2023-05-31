@@ -55,7 +55,7 @@ export default function Footer({ links }: FooterCenteredProps) {
           <Group className={classes.links}>{items}</Group>
 
           <Group spacing="xs" position="right" noWrap>
-            <Link href="https://twitter.com" passHref legacyBehavior>
+            <Link href="https://twitter.com/daynikligelecek" passHref legacyBehavior>
               <ActionIcon component="a" target="_blank" size="lg" variant="default" radius="xl">
                 <IconBrandTwitter size="1.05rem" stroke={1.5} />
               </ActionIcon>
@@ -65,7 +65,7 @@ export default function Footer({ links }: FooterCenteredProps) {
                 <IconBrandInstagram size="1.05rem" stroke={1.5} />
               </ActionIcon>
             </Link>
-            <Link href="https://github.com" passHref legacyBehavior>
+            <Link href="https://github.com/sedatkimki/dayanikli-gelecek" passHref legacyBehavior>
               <ActionIcon component="a" target="_blank" size="lg" variant="default" radius="xl">
                 <IconBrandGithub size="1.05rem" stroke={1.5} />
               </ActionIcon>

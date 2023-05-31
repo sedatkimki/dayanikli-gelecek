@@ -105,9 +105,14 @@ export default function PostCarousel({ posts }: { posts: Post[] }) {
     <>
       <Flex direction="column" gap="md" mb="lg">
         <Title order={2} className={classes.sectionTitle}>
-          Yazılar
+          Yazılar <span style={{ color: '#f00' }}>📝</span>
         </Title>
-        <Text color="dimmed">Bu sayfada Deprem hakkında yazılan yazıları bulabilirsiniz </Text>
+        <Text color="dimmed">
+          Aşağıdaki yazılar, DayanıklıGelecek projesi için gönüllülerimiz tarafından yazılmıştır. Bu
+          yazıları okuyarak, Deprem hakkında daha fazla bilgi edinip depreme karşı
+          bilinçlenebilirsiniz. Ayrıca, yazılarımızı sosyal medyada paylaşarak, deprem konusunda
+          daha fazla kişinin bilinçlenmesine yardımcı olabilirsiniz.
+        </Text>
       </Flex>
       <Carousel
         slideSize="33.3333%"

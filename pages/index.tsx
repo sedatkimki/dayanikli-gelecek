@@ -6,9 +6,9 @@ import {
   Text,
   Box,
   createStyles,
-  Flex,
   Stack,
   Button,
+  Paper,
 } from '@mantine/core';
 import PostCarousel from 'components/post-carousel';
 import { GetStaticPropsResult } from 'next';
@@ -26,6 +26,15 @@ const useStyles = createStyles((theme) => ({
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     boxShadow: theme.shadows.xl,
+  },
+  wrapper: {
+    display: 'flex',
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.white,
+    borderRadius: theme.radius.lg,
+    padding: rem(50),
+    border: `${rem(1)} solid ${
+      theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[2]
+    }`,
   },
   textColor: {
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[9],
@@ -58,27 +67,55 @@ export default function HomePage({ posts }: { posts: Post[] }) {
           </Text>
         </Center>
       </Box>
-      <Box py={50}>
-        <Stats
-          data={[
-            {
-              title: 'Deprem',
-              description: 'Son 10 yılda türkiyede meydana gelen 5.0 ve üzeri yıkıcı deprem sayısı',
-              stats: 39,
-            },
-            {
-              title: 'En büyük deprem',
-              description: 'Türkiyede meydana gelen en büyük deprem',
-              stats: 7.8,
-            },
-            {
-              title: 'Kişi hayatını kaybetti',
-              description: 'Son 10 yılda türkiyede meydana gelen 5.0 ve üzeri yıkıcı depremlerde',
-              stats: 51911,
-            },
-          ]}
-        />
+      <Box pt={50}>
+        <Title align="center" order={2} className={classes.textColor}>
+          Depreme karşı gerçekten hazırlıklı mısınız?
+        </Title>
+        <Text align="center" color="dimmed" pt={20}>
+          Ülkemiz bir deprem bölgesi ve deprem gerçeğiyle yaşamak zorundayız. Fakat deprem gerçeği
+          ile yüzleşmek, bilgi ve hazırlıkla felaketi önleyebilir, hayatları kurtarabilir ve
+          zararları azaltabilir.
+        </Text>
+        <Box py={20}>
+          <Stats
+            data={[
+              {
+                title: 'Deprem',
+                description:
+                  'Son 10 yılda türkiyede meydana gelen 5.0 ve üzeri yıkıcı deprem sayısı',
+                stats: 39,
+              },
+              {
+                title: 'En büyük deprem',
+                description: 'Türkiyede meydana gelen en büyük deprem',
+                stats: 7.8,
+              },
+              {
+                title: 'Kişi hayatını kaybetti',
+                description: 'Son 10 yılda türkiyede meydana gelen 5.0 ve üzeri yıkıcı depremlerde',
+                stats: 51911,
+              },
+            ]}
+          />
+        </Box>
       </Box>
+      <Box py={50}>
+        <Paper radius="lg" shadow="md">
+          <div className={classes.wrapper}>
+            <Stack spacing="xl">
+              <Title align="center" order={2} className={classes.textColor}>
+                Bilgi ve hazırlıkla felaketi önleyin!
+              </Title>
+              <Text align="center" color="dimmed">
+                Deprem gerçeğiyle yüzleşmek, bilgi ve hazırlıkla felaketi önleyebilir, hayatları
+                kurtarabilir ve zararları azaltabilirsiniz. Aşağıdaki yazılar bölümü ile deprem
+                hakkında gönüllülerimiz tarafından yazılmış yazıları okuyabilirsiniz.
+              </Text>
+            </Stack>
+          </div>
+        </Paper>
+      </Box>
+
       <Box py={50}>
         <PostCarousel posts={posts} />
       </Box>
