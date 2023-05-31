@@ -1,49 +1,31 @@
-# Mantine Next Template
+# Dayanıklı Gelecek
+Dayanıklı Gelecek, Türkiyedeki insanları depreme karşı bilinçlendirmeyi amaçlayan açık kaynak kodlu bir sosyal sorumluluk projesidir. 
 
-Get started with Mantine + Next with just a few button clicks.
-Click `Use this template` button at the header of repository or [follow this link](https://github.com/mantinedev/mantine-next-template/generate) and
-create new repository with `@mantine` packages. Note that you have to be logged in to GitHub to generate template.
+## Özellikler
+Dayanıklı Gelecek, oldukça basit bir blog sitesi olarak nitelendirilebilir. Proje hakkında detaylı bilgileri site üzerinden edinebilir ve ayrıca yazılar sekmesinden depreme karşı insanları bilinçlendirmeyi amaçlayan yazılarımıza erişebilirsiniz. 
 
-## Features
+Ayrıca bu yazıları diğer insanlarla paylaşabilir ve daha çok insana ulaşmasını sağlayabilirsiniz.
 
-This template comes with several essential features:
-
-- Server side rendering setup for Mantine
-- Color scheme is stored in cookie to avoid color scheme mismatch after hydration
-- Storybook with color scheme toggle
-- Jest with react testing library
-- ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
-
-## npm scripts
-
-### Build and dev scripts
-
-- `dev` – start dev server
-- `build` – bundle application for production
-- `export` – exports static website to `out` folder
-- `analyze` – analyzes application bundle with [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
-
-### Testing scripts
-
-- `typecheck` – checks TypeScript types
-- `lint` – runs ESLint
-- `prettier:check` – checks files with Prettier
-- `jest` – runs jest tests
-- `jest:watch` – starts jest watch
-- `test` – runs `jest`, `prettier:check`, `lint` and `typecheck` scripts
-
-### Other scripts
-
-- `storybook` – starts storybook dev server
-- `storybook:build` – build production storybook bundle to `storybook-static`
-- `prettier:write` – formats all files with Prettier
+## Kurulum
+Dayanıklı Gelecek projesinin lokalinizde kurup çalıştırmak için aşağıdaki adımları izlemelisiniz.
+Öncelikle github reposunu indirin:
+```
+git clone https://github.com/sedatkimki/dayanikli-gelecek.git
+```
+Gerekli paketleri yükleyin:
+```
+cd dayanikli-gelecek
+yarn/npm install
+```
+Çalıştırmak için aşağıdaki kodları kullanabilirsiniz.
+- `yarn dev` – lokalde çalıştırmak için
+- `yarn build` – production build'i için 
 
 
-# Dayanıklı Gelecek - Bloglara Destek
+## Katkıda bulunmak için
+Dayanıklı Gelecek, bir sosyal sorumluluk projesidir. Yazarlarımız projeye destek vermek isteyen gönüllü kişilerden oluşur. Eğer sizde projeye destek vermek ve gönüllülerimiz arasında yer almak istiyorsanız aşağıdaki adımları izleyebilirsiniz
 
-Dayanıklı Gelecek adlı front-end projesi, destekte bulunmak isteyenlerin kendi bloglarını mdx formatında yazıp sitemiz üzerinde yayınlamalarını sağlar. Bu README dosyasında, projeye katkıda bulunmak isteyenlerin izlemesi gereken adımları bulabilirsiniz.
-
-## Adımlar
+### Adımlar
 
 1. `posts` klasörüne, yazılan blogun başlığını slug formatına dönüştürerek adını kullanarak bir `mdx` dosyası oluşturun.
 2. Markdown formatını kullanarak, aşağıdaki tabloyu oluşturun ve ilgili bilgileri kendi bilgilerinizle doldurun:
@@ -61,16 +43,15 @@ profileName: Yazar profil adı
 ---
 ```
 
-
 3. Blog içeriğini, bu tablonun altına Markdown formatında yapıştırın.
 4. Eğer blogda bir resim varsa, `public/images/blog-ismi` şeklinde bir dizin oluşturun ve resimleri bu dizine yükleyin. Ardından, `mdx` dosyasında bu dizine referans vererek resimleri kullanın.
 5. Değişiklikleri içeren bir pull request açın.
 
-Bu adımları takip ederek, projeye katkıda bulunabilir ve kendi blog yazılarınızı Dayanıklı Gelecek projesinin bir parçası olarak paylaşabilirsiniz.
+Bu adımları takip ederek, projeye katkıda bulunabilir ve kendi yazılarınızı Dayanıklı Gelecek projesinin bir parçası olarak paylaşabilirsiniz.
 
 ---
 
 **Notlar:**
 
-- Proje ile ilgili daha fazla bilgi için [Dayanıklı Gelecek](https://www.dayanikligelecek.com) web sitesini ziyaret edebilirsiniz.
+- Proje ile ilgili daha fazla bilgi için [Dayanıklı Gelecek](https://www.dayanikli-gelecek.vercel.app) web sitesini ziyaret edebilirsiniz.
 - İlgili kodların kaynağına, projenin [GitHub deposu](https://github.com/sedatkimki/dayanikli-gelecek) üzerinden erişebilirsiniz.
